@@ -157,16 +157,27 @@ def test_problem2b():
 
 def problem2b(rect, n, delta, win):
     rect.attach_to(win)
-    corner2 = rect.corner_2
-    corner1 = rect.corner_1
     height = rect.get_height()
     width = rect.get_width()
-    center = rect.get_center()
-    widthincrease = width + (delta * 2)
-    heightincrase = height + (delta * 2)
+    widthincrease = width
+    heightincrease = height
     for k in range(n):
-        corner2.x = center.x +  
-        rec = rg.Rectangle(corner3, corner4)
+        widthincrease = widthincrease + (2 * delta)
+        heightincrease = heightincrease + (2 * delta)
+        corner1 = rect.get_lower_left_corner()
+        corner1.x = corner1.x + widthincrease
+        corner1.y = corner1.y + heightincrease
+        corner2 = rect.get_upper_right_corner()
+        corner2.y = corner2. y + heightincrease
+        corner2.x = corner2.x + widthincrease
+        corner3 = rect.get_upper_left_corner()
+        corner3.x = corner3.x + widthincrease
+        corner3.y = corner3.y + heightincrease
+        corner4 = rect.get_lower_right_corner()
+        corner4.x = corner4.x + widthincrease
+        corner4.y = corner4.y + heightincrease
+        rec = rg.Rectangle(corner1, corner2)
+        rec.attach_to(win)
     win.render()
     """
     See   problem2b_picture.pdf   in this project for pictures
