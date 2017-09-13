@@ -317,7 +317,16 @@ def test_problem1c():
 
 
 def problem1c(n):
-    """
+    total = 1
+    for k in range(n):
+        if is_prime(k + 1) == True:
+            total = total * (k + 1)
+        else:
+            total = total
+
+    number = sum_of_digits(total)
+    return number
+"""
     What comes in:  An integer n >= 2.
     What goes out:
       -- Returns the sum of the digits in the product
