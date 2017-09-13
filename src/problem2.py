@@ -114,7 +114,7 @@ def problem2a(circle, rectangle, window):
       :type window:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -156,6 +156,18 @@ def test_problem2b():
 
 
 def problem2b(rect, n, delta, win):
+    rect.attach_to(win)
+    corner2 = rect.corner_2
+    corner1 = rect.corner_1
+    height = rect.get_height()
+    width = rect.get_width()
+    center = rect.get_center()
+    widthincrease = width + (delta * 2)
+    heightincrase = height + (delta * 2)
+    for k in range(n):
+        corner2.x = center.x +  
+        rec = rg.Rectangle(corner3, corner4)
+    win.render()
     """
     See   problem2b_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
