@@ -9,8 +9,8 @@ emphasized:
   -- animation (Problem 0c)
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  September 2016.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and David Gruninger.  September 2016.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -22,7 +22,7 @@ def main():
     test_problem0c()
 
 
-def is_prime(n):
+def is_prime(n: object) -> object:
     """
     What comes in:  An integer n >= 2.
     What goes out:
@@ -42,7 +42,7 @@ def is_prime(n):
     return True
     # ------------------------------------------------------------------
     # Students:
-    #   Do NOT touch the above  is_prime  function - it has no TODO.
+    #   Do NOT touch the above  is_prime  function - it has no DONE.
     #   Do NOT copy code from this function.
     #
     # Instead, ** CALL ** this function as needed in the problems below.
@@ -60,7 +60,7 @@ def sum_of_digits(number):
     """
     # ------------------------------------------------------------------
     # Students:
-    #   Do NOT touch the above  sum_of_digits function - it has no TODO.
+    #   Do NOT touch the above  sum_of_digits function - it has no DONE.
     #   Do NOT copy code from this function.
     #
     # Instead, ** CALL ** this function as needed in the problems below.
@@ -132,7 +132,12 @@ def test_problem0a():
 
 
 def problem0a(n):
-    """
+    number = sum_of_digits(n)
+    if (number % 2 == 1):
+        return True
+    else:
+        return False
+"""
     What comes in:  An integer.
     What goes out:
       -- Returns True if the sum of the digits in the given integer
@@ -147,7 +152,7 @@ def problem0a(n):
            since (2 + 4 + 6) is 12, which is NOT odd.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -203,6 +208,13 @@ def test_problem0b():
 
 
 def problem0b(n):
+    total = 0
+    for k in range(n):
+        if (is_prime(n) == True):
+            total += 1
+        else:
+            total = total
+    return total
     """
     What comes in:  An integer n >= 2.
     What goes out:
