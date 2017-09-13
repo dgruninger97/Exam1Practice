@@ -209,11 +209,10 @@ def test_problem0b():
 
 def problem0b(n):
     total = 0
-    for k in range(n):
-        if (is_prime(n) == True):
+    for k in range(n - 1):
+        if (is_prime(k + 2) == True):
             total += 1
-        else:
-            total = total
+
     return total
     """
     What comes in:  An integer n >= 2.
@@ -231,7 +230,7 @@ def problem0b(n):
            since there are 46 primes between 2 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -276,6 +275,17 @@ def test_problem0c():
 
 
 def problem0c(circle, n, window):
+    circle.attach_to(window)
+    radius = circle.radius
+    x = circle.center.x + (2 * radius )
+    y = circle.center.y
+    window.render()
+    for k in range(n):
+        newcenter = rg.Point(x, y)
+        newcircle = rg.Circle(newcenter, radius)
+        newcircle.attach_to(window)
+        window.render(0.5)
+        x = x + (2 * radius)
     """
     See   problem0c_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
