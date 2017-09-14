@@ -156,22 +156,6 @@ def test_problem2b():
 
 
 def problem2b(rect, n, delta, win):
-    rect.attach_to(win)
-    height = rect.get_height()
-    width = rect.get_width()
-    widthincrease = width
-    heightincrease = height
-    for k in range(n):
-        corner1 = rect.get_lower_left_corner()
-        corner1.x = corner1.x + delta
-        corner1.y = corner1.y + delta
-        corner2 = rect.get_upper_right_corner()
-        corner2.y = corner2. y - delta
-        corner2.x = corner2.x - delta
-        rec = rg.Rectangle(corner1, corner2)
-        rectan = rg.Rectangle()
-        rec.attach_to(win)
-    win.render()
     """
     See   problem2b_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -200,6 +184,7 @@ def problem2b(rect, n, delta, win):
       :type delta:  int
       :type win:    rg.RoseWindow
     """
+    
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #          Tests have been written for you (above).
