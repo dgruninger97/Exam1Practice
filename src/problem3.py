@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 3.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  September 2016.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and David Gruninger.  September 2016.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -96,16 +96,46 @@ def test_problem3a():
     print('       actual:  ', answer)
 
     window3.close_on_mouse_click()
+    # Window 4:
+    title = 'Problem 3a. Test 4: Start at (30, 30), 20 lines'
+    window4 = rg.RoseWindow(450, 300, title)
+
+    # Test 5 (it is on window 3):
+    point = rg.Point(20, 40)
+    expected = 218
+    answer = problem3a(window4, point, 20)
+    print()
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+
+    window3.close_on_mouse_click()
 
     # ------------------------------------------------------------------
-    # TODO: 2 (continued).
+    # DONE: 2 (continued).
     # Below this comment (or integrated with one of the above tests,
     # your choice), add 1 more test case of your own choosing.
     # ------------------------------------------------------------------
 
 
 def problem3a(window, point, n):
-    """
+    thickness = 1
+    totalthickness = 0
+    for k in range(n):
+        start = rg.Point(point.x, point.y)
+        end = rg.Point(start.x, start.y + 50)
+        line = rg.Line(start, end)
+        line.thickness = (2 * k) + thickness
+        if (line.thickness >= 13):
+            line.thickness = 13
+        point.x = point.x + 20
+        point.y = point.y + 10
+        end.x = end.x + 20
+        end.y = end.y + 10
+        line.attach_to(window)
+        totalthickness = totalthickness + line.thickness
+    window.render()
+    return totalthickness
+"""
     See   problem3a_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
 
