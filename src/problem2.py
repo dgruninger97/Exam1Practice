@@ -30,7 +30,7 @@ import rosegraphics as rg
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    test_problem2a()
+    #test_problem2a()
     test_problem2b()
 
 
@@ -184,7 +184,28 @@ def problem2b(rect, n, delta, win):
       :type delta:  int
       :type win:    rg.RoseWindow
     """
-    
+    rect.attach_to(win)
+    corner1 = rect.corner_1
+    corner2 = rect.corner_2
+    center = rect.get_center()
+    width = rect.get_width()
+    height = rect.get_height()
+    for k in range(n):
+        lrcorner = rect.get_lower_right_corner()
+        urcorner = rect.get_upper_right_corner()
+        llcorner = rect.get_lower_left_corner()
+        ulcorner = rect.get_upper_left_corner()
+        lrcorner.x = lrcorner.x + (2 * delta)
+        lrcorner.y = lrcorner.y + (2 * delta)
+        urcorner.x = urcorner.x + (2 * delta)
+        urcorner.y = urcorner.y + (2 * delta)
+        llcorner.x = llcorner.x + (2 * delta)
+        llcorner.y = llcorner.y + (2 * delta)
+        ulcorner.x = ulcorner.x + (2 * delta)
+        ulcorner.y = ulcorner.y + (2 * delta)
+        rect1 = rg.Rectangle(llcorner,urcorner)
+        rect1.attach_to(win)
+    win.render()
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #          Tests have been written for you (above).
